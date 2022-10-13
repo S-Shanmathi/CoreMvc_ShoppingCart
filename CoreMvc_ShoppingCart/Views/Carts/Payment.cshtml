@@ -1,0 +1,47 @@
+﻿@model CoreMvc_ShoppingCart.Models.Cart
+
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+<h2>Payment</h2>
+
+<p>
+    @ViewBag.answer
+</p>
+
+
+<h3> Choose your mode of payment</h3>
+<ul>
+    <li> Debit card </li>
+    <li> UPI </li>
+    <li> Cash on delivery </li>
+</ul>
+<div class="form-group">
+  
+    <div class="col-md-10">
+        @Html.RadioButtonFor(model=>model.ProductTotalprice,"Debit Card")
+
+        Debit Card
+        @Html.RadioButtonFor(model => model.ProductTotalprice, "UPI")
+
+        UPI
+        @Html.RadioButtonFor(model => model.ProductTotalprice, "COD")
+
+        Cash on Delivery
+    </div>
+</div>
+@*<input type="submit" name="submit" class="btn btn-primary" value="pay" onclick="Payment()" />*@
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("StockMinus", "Carts")'">Pay</button>
+
+@*<script>
+         function Payment()
+         {
+             alert("Thank you for your Purchase, Shop again")
+         }
+    </script>*@
+@*<p>
+
+    @Html.ActionLink("Back to List", "ProductDetails")
+</p>*@

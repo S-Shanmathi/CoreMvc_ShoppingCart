@@ -1,0 +1,68 @@
+﻿@model IEnumerable< CoreMvc_ShoppingCart.Models.Cart>
+
+@{
+    ViewData["Title"] = "Cartview";
+}
+
+<h1>Cart view</h1>
+
+<p>
+    <a asp-action="Index">Add Products</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTotalprice)
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.UserName)
+            </th>*@
+           @* <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              @*  <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductId)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductTotalprice)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+            </td>*@
+              
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CardId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CardId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CardId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Payment", "Carts")'">Click here to Payment</button>
+@*//<a  asp-controller="Carts" asp-action="Payment">Payment</a>*@
+
+
+<div class="item">
+    <img src="~/css/3.png" alt="Banner" style="width:100%; height:20%;margin-top: 5px;">
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable< CoreMvc_ShoppingCart.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.ProductReview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ProductReview)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                <a asp-action="Create" asp-route-id="@item.ProductId">Add To Cart</a>
+               @* <a asp-action="Details" asp-route-id="@item.CardId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CardId">Delete</a>*@
+            </td>
+        </tr>
+        }
+        <a asp-action="Cartview" asp-route-id="">View Cart</a>
+
+    </tbody>
+</table>
+
+<div class="item">
+    <img src="~/css/1.png" alt="Banner" style="width:100%; height:20%;margin-top: 5px;">
+</div>
